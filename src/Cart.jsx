@@ -1,18 +1,23 @@
 import React from 'react'
 import Product from './Product';
+import Footer from './Footer';
 
 function Cart({cartProducts, onRemove}) {
   return (
-    <div className='products'>
-        {cartProducts.length === 0 ? (
-        <p>No products in cart</p>
-      ) : (
-        cartProducts.map(
-          (p) => (
-              <Product product={p} key={p.id} onRemove={onRemove} cart={1}/>
-          )
-      )
-      )}
+    <div className="cart">
+      <div className='products'>
+          {cartProducts.length === 0 ? (
+          <div className='noProducts'>
+            <h1 className='noProductsInCart'>No products in cart</h1>
+            </div>
+        ) : (
+          cartProducts.map(
+            (p) => (
+                <Product product={p} key={p.id} onRemove={onRemove} cart={1}/>
+            )
+        )
+        )}
+      </div>
     </div>
   )
 }

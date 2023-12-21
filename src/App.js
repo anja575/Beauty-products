@@ -8,6 +8,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from './Footer';
 
 
 function App() {
@@ -65,6 +66,7 @@ function App() {
         <Route path='/shop' element = {<Shop products={products} onAdd={addToCart}/>}/>
         <Route path='/cart' element = {<Cart cartProducts={cartProducts} onRemove={removeFromCart}/>}/>
       </Routes>
+      <Footer/>
       </BrowserRouter>
     </div>
   );

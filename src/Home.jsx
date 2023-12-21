@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
-
+import homeImage from './welcome.png';
+import { Link } from 'react-router-dom';
 
 function Home() {
   const [quotes, setQuotes] = useState(null);
@@ -29,12 +30,16 @@ function Home() {
   
 
   return (
-    <div>
+    <div className='back'>
+    <img src={homeImage} alt="Home page image" className="home-image" /> 
+    <div className="text-container">
       <h3>Quote of the day</h3>
       {randomQuote && (
-      <h2>{randomQuote.text} - {randomQuote.author.split(',')[0]}</h2>
+        <h2>{randomQuote.text} - {randomQuote.author.split(',')[0]}</h2>
       )}
     </div>
+  </div>
+
   )
 }
 

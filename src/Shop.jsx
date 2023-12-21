@@ -2,7 +2,6 @@ import React from 'react'
 import Product from './Product';
 import {useState, useEffect} from 'react';
 
-
 function Shop({products, onAdd}) {
     const [visibleProducts, setVisibleProducts] = useState(16);
     const [searchedProducts, setSearchedProducts] = useState(products);
@@ -24,7 +23,7 @@ function Shop({products, onAdd}) {
     };
 
   return (
-    <>
+    <div className='shop'>
     <input className='search-bar'
         type="text"
         placeholder="Search products by name"
@@ -40,9 +39,12 @@ function Shop({products, onAdd}) {
               <button onClick={showMoreProducts}>Show more products</button>
             ) : ""}
           </>
-        ) : "No products"}
+        ) : 
+        <div className='noProducts'>
+          <h1 className='noProductsInCart'>No products</h1>
+        </div>}
     </div>
-    </>
+    </div>
   )
 }
 
