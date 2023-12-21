@@ -102,3 +102,36 @@
   font-size: 1.2em;
   color: #333;
 }
+
+.navBar {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(211, 211, 211);
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: rgb(175, 175, 175);
+  align-items: center;
+  min-height: 40px;
+  padding-left: 25px;
+  font-size: large;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  border: 2px solid #333;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button:hover {
+  background-color: #333;
+  color: #fff;
+}
+

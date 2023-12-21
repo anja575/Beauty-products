@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 
 function Shop() {
     const [products, setProducts] = useState(null);
+    const [visibleProducts, setVisibleProducts] = useState(16);
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -22,12 +23,21 @@ function Shop() {
         fetchProducts();
     }, []);
 
+    const showMoreProducts = () => {
+        setVisibleProducts(visibleProducts + 16);
+    };
+
   return (
     <div className='products'>
-        {products !== null ? products.map(
-            (p) => (
-                <Product product={p} key={p.id}/>
-            )
+        {products !== null ? (
+            <>
+            {products.slice(0, visibleProducts).map((p) => (
+              <Product product={p} key={p.id} />
+            ))}
+            {visibleProducts < products.length && (
+              <button onClick={showMoreProducts}>Show more products</button>
+            )}
+          </>
         ) : "No products"}
     </div>
   )
