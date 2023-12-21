@@ -1,45 +1,48 @@
 import React from 'react'
 import Product from './Product';
-import axios from 'axios';
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 
 
-function Shop() {
-    const [products, setProducts] = useState(null);
+function Shop({products, onAdd}) {
     const [visibleProducts, setVisibleProducts] = useState(16);
+    const [searchedProducts, setSearchedProducts] = useState(products);
 
     useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const response = await axios.get('https://makeup-api.herokuapp.com/api/v1/products.json');
-                const nyxProducts = response.data.filter(product => product.brand === 'nyx' && product.description !== "" );
-                setProducts(nyxProducts);
-                console.log(nyxProducts);
-            } catch (error) {
-                console.error('Error loading data:', error);
-            }
-        };
-
-        fetchProducts();
-    }, []);
+        setSearchedProducts(products);
+    }, [products]);
 
     const showMoreProducts = () => {
         setVisibleProducts(visibleProducts + 16);
     };
 
+    const searchProducts = (rec) => {
+        const filteredProducts = products.filter((product) =>
+          product.name.toLowerCase().includes(rec.toLowerCase())
+        );
+        setSearchedProducts(filteredProducts);
+        setVisibleProducts(16);
+    };
+
   return (
+    <>
+    <input className='search-bar'
+        type="text"
+        placeholder="Search products by name"
+        onChange={(e) => searchProducts(e.target.value)}
+    />
     <div className='products'>
-        {products !== null ? (
+        {searchedProducts !== null ? (
             <>
-            {products.slice(0, visibleProducts).map((p) => (
-              <Product product={p} key={p.id} />
+            {searchedProducts.slice(0, visibleProducts).map((p) => (
+              <Product product={p} key={p.id} onAdd={onAdd} />
             ))}
-            {visibleProducts < products.length && (
+            {visibleProducts < searchedProducts.length ? (
               <button onClick={showMoreProducts}>Show more products</button>
-            )}
+            ) : ""}
           </>
         ) : "No products"}
     </div>
+    </>
   )
 }
 

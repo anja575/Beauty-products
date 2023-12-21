@@ -135,3 +135,22 @@ button:hover {
   color: #fff;
 }
 
+.search {
+  color: #FB6090;
+  background: white;
+  width: 250px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 15px;
+  padding-bottom: 5px;
+  cursor: pointer;
+  border: #821D30;
+  border-style: dashed;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  margin-left: 40px;
+  margin-right: 40px;
+
+}

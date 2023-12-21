@@ -1,8 +1,19 @@
 import React from 'react'
+import Product from './Product';
 
-function Cart() {
+function Cart({cartProducts, onRemove}) {
   return (
-    <div>Cart</div>
+    <div className='products'>
+        {cartProducts.length === 0 ? (
+        <p>No products in cart</p>
+      ) : (
+        cartProducts.map(
+          (p) => (
+              <Product product={p} key={p.id} onRemove={onRemove} cart={1}/>
+          )
+      )
+      )}
+    </div>
   )
 }
 
