@@ -1,3 +1,7 @@
+#root {
+  font-family:  'Courier New', Courier, monospace;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +39,66 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.products {
+  position: center;
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  place-items: center;
+}
+
+.product {
+  width: 100%;
+  max-width: 250px;
+  margin: 1%;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.product:hover {
+  transform: scale(1.02); 
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: contain;
+}
+
+
+.product-body {
+  padding: 10px;
+}
+
+.product-name {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+  height: 80px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.product-description {
+  font-size: 1em;
+  color: #666;
+  text-align: left;
+  max-height: 100px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.product-price {
+  font-size: 1.2em;
+  color: #333;
 }
