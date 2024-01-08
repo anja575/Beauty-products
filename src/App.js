@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Footer from './Footer';
-
+import Contact from './Contact';
 
 function App() {
   const [products, setProducts] = useState(null);
@@ -65,6 +65,7 @@ function App() {
         <Route path='/' element = {<Home/>}/>
         <Route path='/shop' element = {<Shop products={products} onAdd={addToCart}/>}/>
         <Route path='/cart' element = {<Cart cartProducts={cartProducts} onRemove={removeFromCart}/>}/>
+        <Route path='/contact' element = {<Contact/>}/>
       </Routes>
       <Footer/>
       </BrowserRouter>
