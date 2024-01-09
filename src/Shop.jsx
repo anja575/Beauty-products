@@ -30,7 +30,7 @@ function Shop({products, onAdd}) {
         onChange={(e) => searchProducts(e.target.value)}
     />
     <div className='products'>
-        {searchedProducts !== null ? (
+        {searchedProducts !== null  && searchedProducts !== undefined ? (
             <>
             {searchedProducts.slice(0, visibleProducts).map((p) => (
               <Product product={p} key={p.id} onAdd={onAdd} />
